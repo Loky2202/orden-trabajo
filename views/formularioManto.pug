@@ -1,0 +1,331 @@
+
+extends layout
+include mixins/formCliente.pug
+block contenido
+
+    .container
+
+        h1.text-center= nombrepagina
+        br
+        if resPlaca
+            +formCliente(resPlaca)
+
+        else
+            .alert.alert-danger(role='alert') 
+                .alert.text-center ERROR: placas no encontradas...
+
+        // Modal
+        if resPlaca
+            #modalFormularioManto.modal.fade(tabindex='-1' role='dialog' aria-labelledby='exampleModalLabel' aria-hidden='true')
+                .modal-dialog.modal-xl(role='document')
+                    .modal-content
+                        .modal-header
+                            h5#exampleModalLabel.modal-title 
+                                strong= `Formulario Mantenimiento Placas: ${resPlaca.placas}`
+                            button.close(type='button' data-dismiss='modal' aria-label='Close')
+                                span(aria-hidden='true') &times;
+                        .modal-body
+                            form(method='POST' action=`/agregar-mantenimiento/${resPlaca.id}`)
+                                .row
+                                    .col
+                                        p
+                                            strong CARBURACION
+                                        .form-group
+                                            .btn-group.btn-group-toggle(data-toggle='buttons')
+                                                label.btn.btn-outline-secondary
+                                                    input#opcionCarburacion1(type='radio' name='carburacion' value='limpieza' )
+                                                    |  LIMPIEZA
+                                                label.btn.btn-outline-secondary
+                                                    input#opcionCarburacion2(type='radio' name='carburacion' value='cambio')
+                                                    |  CAMBIO
+                                                label.btn.btn-outline-secondary
+                                                    input#opcionCarburacion3(type='radio' name='carburacion' value='reparacion')
+                                                    |  REPARACION
+                                        .form-group
+                                            input#carburacion-observacion.form-control(type="text", name='carburacionObservaciones' placeholder='Observaciones...')
+                                        
+                                                            
+                                            
+
+                                    .col
+                                        p
+                                            strong MOTOR
+                                        .input-group.mb-4
+                                            .input-group-prepend
+                                                .input-group
+                                                    .btn-group-toggle(data-toggle='buttons')
+                                                        label.btn.btn-outline-secondary
+                                                            input(type='checkbox' name='motorCambioAceite' value=1)
+                                                            |  Cambio de aceite
+                                            input#cambio-aceite-observaciones.form-control(type='text' name='cambioAceiteObservaciones' placeholder='Observaciones...')
+
+                                        
+                                        .input-group.mb-4
+                                            .input-group-prepend
+                                                .input-group
+                                                    .btn-group-toggle(data-toggle='buttons')
+                                                        label.btn.btn-outline-secondary
+                                                            input(type='checkbox' name='motorBujias' value='1')
+                                                            |  Bujias
+                                            input#cambio-aceite-observaciones.form-control(type='text' name='bujiasObservaciones' placeholder='Observaciones...')
+                                        
+                                        .input-group.mb-4
+                                            .input-group-prepend
+                                                .input-group
+                                                    .btn-group-toggle(data-toggle='buttons')
+                                                        label.btn.btn-outline-secondary
+                                                            input(type='checkbox' name='motor-filtro-aire' value='1')
+                                                            |  Filtro de aire
+                                            input#cambio-aceite-observaciones.form-control(type='text' name='motor-filtro-observaciones' placeholder='Observaciones...')
+
+                                        .input-group.mb-4
+                                            .input-group-prepend
+                                                .input-group
+                                                    .btn-group-toggle(data-toggle='buttons')
+                                                        label.btn.btn-outline-secondary
+                                                            input(type='checkbox' name='motor-ajuste' value='1')
+                                                            |  Ajuste
+                                            textarea#cambio-aceite-observaciones.form-control(name='motor-ajuste-observaciones' placeholder='Observaciones...')
+                                .row
+                                    .col
+                                        p
+                                            strong CHASIS
+                                            .input-group.mb-4
+                                                .input-group-prepend
+                                                    .input-group
+                                                        .btn-group-toggle(data-toggle='buttons')
+                                                            label.btn.btn-outline-secondary
+                                                                input(type='checkbox' name='chasis-catarina' value='1')
+                                                                |  Catarina
+                                                input#cambio-aceite-observaciones.form-control(type='text' name='catarina-observaciones' placeholder='Observaciones...')
+
+                                            
+                                            .input-group.mb-4
+                                                .input-group-prepend
+                                                    .input-group
+                                                        .btn-group-toggle(data-toggle='buttons')
+                                                            label.btn.btn-outline-secondary
+                                                                input(type='checkbox' name='chasis-cadena' value='1')
+                                                                |  Cadena
+                                                input#cambio-aceite-observaciones.form-control(type='text' name='cadena-observaciones' placeholder='Observaciones...')
+                                            
+                                            .input-group.mb-4
+                                                .input-group-prepend
+                                                    .input-group
+                                                        .btn-group-toggle(data-toggle='buttons')
+                                                            label.btn.btn-outline-secondary
+                                                                input(type='checkbox' name='chasis-frenos' value='1')
+                                                                |  Frenos
+                                                input#cambio-aceite-observaciones.form-control(type='text' name='frenos-observaciones' placeholder='Observaciones...')
+
+                                            .input-group.mb-4
+                                                .input-group-prepend
+                                                    .input-group
+                                                        .btn-group-toggle(data-toggle='buttons')
+                                                            label.btn.btn-outline-secondary
+                                                                input(type='checkbox' name='chasis-manecillas' value='1')
+                                                                |  Manecillas
+                                                input#cambio-aceite-observaciones.form-control(type='text' name='manecillas-observaciones' placeholder='Observaciones...')
+                                            
+                                            .input-group.mb-4
+                                                .input-group-prepend
+                                                    .input-group
+                                                        .btn-group-toggle(data-toggle='buttons')
+                                                            label.btn.btn-outline-secondary
+                                                                input(type='checkbox' name='chasis-ring' value='1')
+                                                                |  Ring
+                                                input#cambio-aceite-observaciones.form-control(type='text' name='ring-observaciones' placeholder='Observaciones...')
+                                            
+                                            .input-group.mb-4
+                                                .input-group-prepend
+                                                    .input-group
+                                                        .btn-group-toggle(data-toggle='buttons')
+                                                            label.btn.btn-outline-secondary
+                                                                input(type='checkbox' name='chasis-espejos' value='1')
+                                                                |  Espejos
+                                                input#cambio-aceite-observaciones.form-control(type='text' name='espejos-observaciones' placeholder='Observaciones...')
+
+                                            .input-group.mb-4
+                                                .input-group-prepend
+                                                    .input-group
+                                                        .btn-group-toggle(data-toggle='buttons')
+                                                            label.btn.btn-outline-secondary
+                                                                input(type='checkbox' name='chasis-llantas' value='1')
+                                                                |  Llantas
+                                                input#cambio-aceite-observaciones.form-control(type='text' name='llantas-observaciones' placeholder='Observaciones...')
+
+
+                                            .input-group.mb-4
+                                                .input-group-prepend
+                                                    .input-group
+                                                        .btn-group-toggle(data-toggle='buttons')
+                                                            label.btn.btn-outline-secondary
+                                                                input(type='checkbox' name='chasis-patas' value='1')
+                                                                |  Patas
+                                                input#cambio-aceite-observaciones.form-control(type='text' name='patas-observaciones' placeholder='Observaciones...')
+
+                                            .input-group.mb-4
+                                                .input-group-prepend
+                                                    .input-group
+                                                        .btn-group-toggle(data-toggle='buttons')
+                                                            label.btn.btn-outline-secondary
+                                                                input(type='checkbox' name='chasis-amortiguadores' value='1')
+                                                                |  Amortiguadores
+                                                input#cambio-aceite-observaciones.form-control(type='text' name='amortiguadores-observaciones' placeholder='Observaciones...')
+
+                                            .input-group.mb-4
+                                                .input-group-prepend
+                                                    .input-group
+                                                        .btn-group-toggle(data-toggle='buttons')
+                                                            label.btn.btn-outline-secondary
+                                                                input(type='checkbox' name='chasis-cables' value='1')
+                                                                |  Cables
+                                                input#cambio-aceite-observaciones.form-control(type='text' name='cables-observaciones' placeholder='Observaciones...')
+
+                                            .input-group.mb-4
+                                                .input-group-prepend
+                                                    .input-group
+                                                        .btn-group-toggle(data-toggle='buttons')
+                                                            label.btn.btn-outline-secondary
+                                                                input(type='checkbox' name='chasis-engrese-general' value='1')
+                                                                |  Engrese General
+                                                input#cambio-aceite-observaciones.form-control(type='text' name='engrese-general-observaciones' placeholder='Observaciones...')
+
+
+
+
+                                    .col
+                                        p
+                                            strong ELECTRICO
+                                            .input-group.mb-4
+                                                .input-group-prepend
+                                                    .input-group
+                                                        .btn-group-toggle(data-toggle='buttons')
+                                                            label.btn.btn-outline-secondary
+                                                                input(type='checkbox' name='electrico-bobina-arranque' value='1')
+                                                                |  Bobina de Arranque
+                                                input#cambio-aceite-observaciones.form-control(type='text' name='bobina-arranque-observaciones' placeholder='Observaciones...')
+
+                                            
+                                            .input-group.mb-4
+                                                .input-group-prepend
+                                                    .input-group
+                                                        .btn-group-toggle(data-toggle='buttons')
+                                                            label.btn.btn-outline-secondary
+                                                                input(type='checkbox' name='electrico-foco-stop' value='1')
+                                                                |  Foco de Stop
+                                                input#cambio-aceite-observaciones.form-control(type='text' name='foco-stop-observaciones' placeholder='Observaciones...')
+                                            
+                                            .input-group.mb-4
+                                                .input-group-prepend
+                                                    .input-group
+                                                        .btn-group-toggle(data-toggle='buttons')
+                                                            label.btn.btn-outline-secondary
+                                                                input(type='checkbox' name='electrico-foco-direccionales' value='1')
+                                                                |  Focos Direccionales
+                                                input#cambio-aceite-observaciones.form-control(type='text' name='foco-direccionales-observaciones' placeholder='Observaciones...')
+
+                                            .input-group.mb-4
+                                                .input-group-prepend
+                                                    .input-group
+                                                        .btn-group-toggle(data-toggle='buttons')
+                                                            label.btn.btn-outline-secondary
+                                                                input(type='checkbox' name='electrico-seal-bean' value='1')
+                                                                |  Seal Bean
+                                                input#cambio-aceite-observaciones.form-control(type='text' name='seal-bean-observaciones' placeholder='Observaciones...')
+
+                                            .input-group.mb-4
+                                                .input-group-prepend
+                                                    .input-group
+                                                        .btn-group-toggle(data-toggle='buttons')
+                                                            label.btn.btn-outline-secondary
+                                                                input(type='checkbox' name='electrico-pito' value='1')
+                                                                |  Pito
+                                                input#cambio-aceite-observaciones.form-control(type='text' name='pito-observaciones' placeholder='Observaciones...')
+
+                                            .input-group.mb-4
+                                                .input-group-prepend
+                                                    .input-group
+                                                        .btn-group-toggle(data-toggle='buttons')
+                                                            label.btn.btn-outline-secondary
+                                                                input(type='checkbox' name='electrico-bateria' value='1')
+                                                                |  Bateria
+                                                input#cambio-aceite-observaciones.form-control(type='text' name='bateria-observaciones' placeholder='Observaciones...')
+
+                                            .input-group.mb-4
+                                                .input-group-prepend
+                                                    .input-group
+                                                        .btn-group-toggle(data-toggle='buttons')
+                                                            label.btn.btn-outline-secondary
+                                                                input(type='checkbox' name='electrico-fusible' value='1')
+                                                                |  Fusibles
+                                                input#cambio-aceite-observaciones.form-control(type='text' name='fusible-observaciones' placeholder='Observaciones...')
+
+                                            .input-group.mb-4
+                                                .input-group-prepend
+                                                    .input-group
+                                                        .btn-group-toggle(data-toggle='buttons')
+                                                            label.btn.btn-outline-secondary
+                                                                input(type='checkbox' name='electrico-luz-tablero' value='1')
+                                                                |  Luz de Tablero
+                                                input#cambio-aceite-observaciones.form-control(type='text' name='luz-tablero-observaciones' placeholder='Observaciones...')
+
+                                            .input-group.mb-4
+                                                .input-group-prepend
+                                                    .input-group
+                                                        .btn-group-toggle(data-toggle='buttons')
+                                                            label.btn.btn-outline-secondary
+                                                                input(type='checkbox' name='electrico-ampolleta-delantera' value='1')
+                                                                |  Ampolleta Delantera
+                                                input#cambio-aceite-observaciones.form-control(type='text' name='ampolleta-delantera-observaciones' placeholder='Observaciones...')
+
+                                            .input-group.mb-4
+                                                .input-group-prepend
+                                                    .input-group
+                                                        .btn-group-toggle(data-toggle='buttons')
+                                                            label.btn.btn-outline-secondary
+                                                                input(type='checkbox' name='motor-ampolleta-trasera' value='1')
+                                                                |  Ampolleta Trasera
+                                                input#cambio-aceite-observaciones.form-control(type='text' name='ampolleta-trasera-observaciones' placeholder='Observaciones...')
+                                
+                                .row
+                                    .col
+
+                                        p
+                                            strong Nivel de Gasolina
+                                        .form-group
+                                            .btn-group.btn-group-toggle(data-toggle='buttons')
+                                                label.btn.btn-outline-secondary
+                                                    input#opcion1(type='radio' name='nivel-gas' value='E' )
+                                                    | E
+                                                label.btn.btn-outline-secondary
+                                                    input#opcion2(type='radio' name='nivel-gas' value='1/4')
+                                                    | 1/4
+                                                label.btn.btn-outline-secondary
+                                                    input#opcion3(type='radio' name='nivel-gas' value='1/2')
+                                                    | 1/2
+                                                label.btn.btn-outline-secondary
+                                                    input#opcion3(type='radio' name='nivel-gas' value='3/4')
+                                                    | 3/4
+                                                label.btn.btn-outline-secondary
+                                                    input#opcion3(type='radio' name='nivel-gas' value='F')
+                                                    | F
+
+                                    .col
+                                        .col-md-6.mb-3
+                                            label(for='validationDefaultUsername') Kilometros Actuales
+                                            .input-group
+                                                    .input-group-prepend
+                                                        span#campoKilometros.input-group-text KM
+                                                    input#campoKilometros.form-control(type='number' name='kilometros' placeholder='00000000' required='')
+
+                                .row
+                                    .input-group
+                                        button.btn.btn-primary.btn-block(type='submit') Enviar
+
+                        .modal-footer
+                            button.btn.btn-secondary(type='button' data-dismiss='modal') Cancelar
+                        
+
+
+

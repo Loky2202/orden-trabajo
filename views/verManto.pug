@@ -1,0 +1,35 @@
+extends layout
+block contenido
+
+    .container
+        h1.text-center= `${nombrepagina} Placas: 145-145`
+        br
+        br
+    .container
+        table.table
+            caption Lista de Mantenimientos, placas: 145-145
+            thead
+                tr
+                th(scope='col') #
+                th(scope='col') Fecha
+                th(scope='col') Opciones
+            tbody
+                each manto in resManto
+                    tr
+                        th(scope='row')= num = num + 1
+                        td
+                            h4= manto
+                        td
+                            .row.align-items-center
+                                .col
+                                    a.btn.btn-info.btn-lg.active(href='#' role='button' aria-pressed='true') Ver
+                                .col
+                                    a.btn.btn-warning.btn-lg.active(href='#' role='button' aria-pressed='true') Editar
+                                .col
+                                    a.btn.btn-danger.btn-lg.active(href='#' role='button' aria-pressed='true') Eliminar
+                else
+                    tr 
+                        td 
+                    .alert.alert-warning(role='alert')
+                        | No hay datos &mdash;Ingrese nuevos datos en la opcion: Agregar Mantenimiento!
+                

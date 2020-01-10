@@ -1,0 +1,56 @@
+mixin formCliente(resPlaca = {})
+
+    form(method='POST' action='/crear-cliente')
+            .form-row
+                .col-md-4.mb-3
+                    label(for='placas') Placas
+                    input#placas.form-control.agregarreadonly(type='text', name='placas' placeholder='xxx-xxx' required='' value= resPlaca.placas aria-describedby="placasHelp")
+                    small#placasHelp.text-muted
+                        | Ingrese por ejemplo: 145-253
+                    
+
+            .form-row
+                .col-md-3.mb-3
+                    label(for='marca') Marca
+                    input#marca.form-control.agregarreadonly(type='text' name='marca' value= resPlaca.marca required='')
+                .col-md-3.mb-3
+                    label(for='modelo') Modelo
+                    input#modelo.form-control.agregarreadonly(type='text' name='modelo' value= resPlaca.modelo required='')
+                .col-md-3.mb-3
+                    label(for='year') Año
+                    input#year.form-control.agregarreadonly(type='number' name='year' value= resPlaca.year max='2020' min='1900' maxlegth='4' required='')
+                .col-md-3.mb-3
+                    label(for='motor') Motor
+                    input#motor.form-control.agregarreadonly(type='text' name='motor' value= resPlaca.motor required='')
+            .form-row
+                .col-md-9.mb-3
+                    label(for='cliente') Nombre del cliente
+                    input#cliente.form-control.agregarreadonly(type='text' name='cliente' value= resPlaca.cliente required='')
+                .col-md-3.mb-3
+                    label(for='tipo') Tipo
+                    if resPlaca.tipo
+                        input#tipo.form-control.agregarreadonly(type='text' name='tipo' value= resPlaca.tipo required='')
+                    else
+                        select#tipo.custom-select(required='' name='tipo')
+                            option(selected='' disabled='' value='') Seleccionar..
+                            option Empresa
+                            option Particular
+            .form-row
+                .col-md-4.mb-3
+                    label(for='telefono') Telefono
+                    input#telefono.form-control.agregarreadonly(type='text' name='telefono' value= resPlaca.telefono aria-describedby="telefonoHelp" required='')
+                    small#telefonoHelp.text-muted
+                        | Ingrese por ejemplo: 7777-7777
+                .col-md-4.mb-3
+                    label(for='correo') Correo Electronico 
+                        span @
+                    input#correo.form-control.agregarreadonly(type='email' name='email' value= resPlaca.email required='')
+            if !resPlaca.cliente
+                button.btn.btn-secondary.btn-lg.btn-block(type='submit') Guardar
+            else
+                .form-row
+                    .col-md-4.mb-3
+                        button.btn.btn-success(type='button' data-toggle='modal' data-target='#modalFormularioManto')
+                            | Agregar Mantenimiento
+                    .col-md-0.ml-auto
+                        a.btn.btn-info.btn-lg.active(href='/listado-manteminientos' role='button' aria-pressed='true') Ver Listado de Mantenimientos

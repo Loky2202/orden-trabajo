@@ -1,0 +1,24 @@
+
+extends layout
+include mixins/formCliente
+block contenido
+
+    .container
+
+        h1.text-center= nombrepagina
+        br
+        //-
+        
+        if error
+            .alert.alert-danger(role='alert') 
+                each err in error
+                    .alert=err.message
+            
+        
+        if errorControl
+            .alert.alert-danger(role='alert') 
+                each err in errorControl
+                    .alert=err
+       
+        +formCliente(resPlaca)
+            
