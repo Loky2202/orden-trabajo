@@ -46,7 +46,7 @@ app.set('views', path.join(__dirname, './views'))
 app.use('/', router())
 
 
-app.listen('3000', () => {
+app.listen('80', () => {
     console.log('Server on');
     
 })
