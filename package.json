@@ -4,9 +4,9 @@
   "description": "Aplicacion para llevar control de las ordenes de trabajo a motocicleta",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon index.js",
+    "test": "nodemon index.js -e js,pug",
     "watch": "webpack --w --mode development",
-    "start": "concurrently \"npm run dev\" \"npm run watch\""
+    "start": "concurrently \"npm run test\" \"npm run watch\""
   },
   "keywords": [],
   "author": "Loky2202",
@@ -19,7 +19,8 @@
     "express-validator": "^6.3.1",
     "mysql2": "^2.1.0",
     "pug": "^2.0.4",
-    "sequelize": "^5.21.3"
+    "sequelize": "^5.21.3",
+    "sweetalert2": "^9.7.1"
   },
   "devDependencies": {
     "@babel/core": "^7.7.7",
