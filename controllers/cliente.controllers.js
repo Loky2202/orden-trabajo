@@ -71,3 +71,80 @@ exports.listadoPlacas = async (req, res, next) => {
         cont: 0
     })
 }
+
+/* Formulario Editar Cliente */
+exports.formularioEditarCliente = async (req, res, next) => {
+
+    const id = req.params.id
+    resCliente = await Cliente.findOne({ where: { id } })
+
+    res.render('clienteEditar', {
+        nombrepagina: 'Editar cliente',
+        resCliente
+        
+    })
+}
+
+/* Editar Cliente */
+exports.editarCliente = async (req, res, next) => {
+
+    const {placas, marca, modelo, year, motor, cliente, tipo, telefono, email} = req.body;
+
+    const id = req.params.id;
+
+    const errorControl = []
+
+    let cadena = placas;
+
+    if (cadena.indexOf('-') === -1 || cadena.length > 7 || cadena.split('-').length > 2 ) {
+        errorControl.push('necesita que tenga el siguiente formato el campo: 999-999');
+    }
+
+    if(errorControl.length) {
+        res.render('formularioCliente', {
+            nombrepagina: 'Formulario para nuevo Cliente',
+            errorControl,
+            resPlaca: req.body
+            
+        })
+        return next()
+    }
+    
+    try {
+        await Cliente.update({ 
+        
+            placas,
+            marca,
+            modelo,
+            year,
+            motor,
+            cliente,
+            tipo,
+            telefono,
+            email
+            },
+            {
+                where: {
+                    id
+                }
+            }
+            )
+            res.redirect('/lista-placas')
+        
+        
+    } catch (error) {
+
+        res.render('clienteEditar', {
+            nombrepagina: 'Editar Cliente',
+            error: error.errors,
+            resCliente
+        })
+    }
+
+}
+
+exports.borrarCliente = async (req, res, next) => {
+
+    
+}
+

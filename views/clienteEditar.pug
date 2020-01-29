@@ -1,6 +1,5 @@
-
-extends layout
-include mixins/formCliente
+extends layout.pug
+include mixins/formCliente.pug
 block contenido
 
     .container
@@ -16,5 +15,4 @@ block contenido
                 each err in errorControl
                     .alert=err
        
-        +formCliente(resPlaca)
-            
+        +formCliente(resCliente)

@@ -4,9 +4,6 @@ include mixins/formCliente.pug
 block contenido
 
     .container
-
-        h1.text-center= nombrepagina
-        br
         if resPlaca
             +formCliente(resPlaca)
 

@@ -1,31 +1,34 @@
 extends layout
 block contenido
 
+    
     .container
-        h1.text-center= nombrepagina
-        br
-        br
-    .container
-        table.table
-            caption Lista de Clientes
-            thead
-                tr
-                th(scope='col') #
-                th(scope='col') Placas
-                th(scope='col') Cliente
-                th(scope='col') Modelo
-            tbody
-                each cliente in resCliente
+        .table-responsive
+            table.table
+                caption Lista de Clientes
+                thead
                     tr
-                        th(scope='row')= cont = cont + 1
-                        td
-                            h4
-                                a.badge.badge-info(href=`/buscarPlacas?campoPlacas=${cliente.placas}`)= cliente.placas
-                        td= cliente.cliente
-                        td= cliente.modelo
-                else
-                    tr 
-                        td 
-                    .alert.alert-warning(role='alert')
-                        | No hay datos de clientes&mdash;Ingrese nuevos datos en la opcion: Agregar Cliente!
-                
+                    th(scope='col') #
+                    th(scope='col') Placas
+                    th(scope='col') Cliente
+                    th(scope='col') Modelo
+                    th(scope='col' colspan='2' text-align='center') Opciones
+                tbody
+                    each cliente in resCliente
+                        tr
+                            th(scope='row')= cont = cont + 1
+                            td
+                                h4
+                                    a.badge.badge-info(href=`/buscarPlacas?campoPlacas=${cliente.placas}`)= cliente.placas
+                            td= cliente.cliente
+                            td= cliente.modelo
+                            td
+                                a.btn.btn-warning.btn-lg(href=`/editar-cliente/${cliente.id}` role='button' aria-pressed='true') Editar
+                            td
+                                a.btn.btn-danger.btn-lg(href='/listado-manteminientos' role='button' aria-pressed='true') Borrar
+                    else
+                        tr 
+                            td 
+                        .alert.alert-warning(role='alert')
+                            | No hay datos de clientes&mdash;Ingrese nuevos datos en la opcion: Agregar Cliente!
+                    

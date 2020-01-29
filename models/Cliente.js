@@ -38,10 +38,7 @@ const Cliente =  bd.define('clientes', {
         type: Sequileze.STRING(6)
     },
     cliente: {
-        type: Sequileze.STRING(100),
-        validate: {
-            isAlphanumeric: true
-        }
+        type: Sequileze.STRING(100)
     },
     tipo: {
         type: Sequileze.STRING(100)

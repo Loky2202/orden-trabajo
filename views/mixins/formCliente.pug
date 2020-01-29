@@ -1,6 +1,6 @@
 mixin formCliente(resPlaca = {})
 
-    form(method='POST' action='/crear-cliente')
+    form(method='POST' action=`${ resPlaca.id ? '/editar-cliente/'+resPlaca.id : '/crear-cliente' }` )
             .form-row
                 .col-md-4.mb-3
                     label(for='placas') Placas
@@ -48,9 +48,19 @@ mixin formCliente(resPlaca = {})
             if !resPlaca.cliente
                 button.btn.btn-secondary.btn-lg.btn-block(type='submit') Guardar
             else
-                .form-row
-                    .col-md-4.mb-3
-                        button.btn.btn-success(type='button' data-toggle='modal' data-target='#modalFormularioManto')
-                            | Agregar Mantenimiento
-                    .col-md-0.ml-auto
-                        a.btn.btn-info.btn-lg.active(href='/listado-manteminientos' role='button' aria-pressed='true') Ver Listado de Mantenimientos
+                button.btn.btn-secondary.btn-lg.btn-block(type='submit') Editar
+                
+
+
+
+
+
+
+                //.container
+                    .row
+                        .col-md-4
+                            button.btn.btn-success.btn-lg(type='button' data-toggle='modal' data-target='#modalFormularioManto')
+                                | Agregar Mantenimiento
+                        
+                        .col-md-4.ml-auto
+                            a.btn.btn-info.btn-lg.active(href='/listado-manteminientos' role='button' aria-pressed='true') Ver Listado de Mantenimientos

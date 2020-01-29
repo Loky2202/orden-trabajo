@@ -2,8 +2,8 @@ const express = require('express');
 const router = require('./router/index')
 const path = require('path')
 const bodyParser = require('body-parser')
-const {expressValidator} = require('express-validator')
-
+/* const {expressValidator} = require('express-validator')
+ */
 
 
 
@@ -25,6 +25,9 @@ sequelize.sync()
 
 const app = express();
 
+/* Carpeta estatica */
+app.use(express.static(path.join(__dirname, 'public')))
+
 
 /* Habilitar bodyParser para recibir req.body */
 app.use(bodyParser.urlencoded({ extended: true }))
@@ -32,8 +35,6 @@ app.use(bodyParser.urlencoded({ extended: true }))
 /* /* validar express-validator 
 app.use(expressValidator()) */
 
-/* Carpeta estatica */
-app.use(express.static('public'))
 
 
 
@@ -46,7 +47,8 @@ app.set('views', path.join(__dirname, './views'))
 app.use('/', router())
 
 
-app.listen('3000', () => {
+
+app.listen('5000', () => {
     console.log('Server on');
     
 })
