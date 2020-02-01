@@ -45,7 +45,7 @@ mixin formCliente(resPlaca = {})
                     label(for='correo') Correo Electronico 
                         span @
                     input#correo.form-control.agregarreadonly(type='email' name='email' value= resPlaca.email required='')
-            if !resPlaca.cliente
+            if !resPlaca.id
                 button.btn.btn-secondary.btn-lg.btn-block(type='submit') Guardar
             else
                 button.btn.btn-secondary.btn-lg.btn-block(type='submit') Editar

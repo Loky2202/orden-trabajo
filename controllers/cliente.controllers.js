@@ -143,8 +143,14 @@ exports.editarCliente = async (req, res, next) => {
 
 }
 
-exports.borrarCliente = async (req, res, next) => {
+exports.eliminarCliente = async (req, res, next) => {
 
-    
+    const id = req.params.id;
+
+    const respuesta = await Cliente.destroy({ where: { id } })
+
+    if(!respuesta) return next();
+
+    res.status(200).send('Cliente eliminado...')
 }
 

@@ -45,6 +45,8 @@ module.exports = function() {
     router.get('/editar-cliente/:id', controladorCliente.formularioEditarCliente)
     /* Editar Cliente */
     router.post('/editar-cliente/:id', controladorCliente.editarCliente)
+    /* Eliminar Cliente */
+    router.delete('/cliente/:id', controladorCliente.eliminarCliente)
 
     return router;
 }

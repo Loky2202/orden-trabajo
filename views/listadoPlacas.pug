@@ -25,7 +25,7 @@ block contenido
                             td
                                 a.btn.btn-warning.btn-lg(href=`/editar-cliente/${cliente.id}` role='button' aria-pressed='true') Editar
                             td
-                                <button type="button" class="btn btn-danger btnBorrar" id="btnEliminar">Danger</button>
+                                button.btn.btn-danger.btnBorrar(type='button' id='btnEliminar' data-cliente=cliente.id) Danger
                     else
                         tr 
                             td 
