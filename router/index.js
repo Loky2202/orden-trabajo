@@ -36,7 +36,7 @@ module.exports = function() {
     router.get('/lista-Placas', controladorCliente.listadoPlacas)
 
     /* Ver listado de mantenimientos */
-    router.get('/listado-manteminientos', controladorManto.listadoManto)
+    router.get('/listado-manteminientos/:id', controladorManto.listadoManto)
 
     /* Ver formulario manto */
     router.post('/agregar-mantenimiento/:id', controladorManto.agregarManto)

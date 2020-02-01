@@ -9,11 +9,15 @@ exports.listadoManto = async (req, res, next) => {
 
     /* Traer lista de mantenimientos para cada placa */
 
-    const resManto = ['12/02/2019', '25/08/2019']
+    const id = req.params.id;
+
+    const resManto = await Manto.findAll({ where: { clienteId: id } })
+    const resCliente = await Cliente.findOne({ where: { id } })
 
     res.render('verManto', {
         nombrepagina: 'Listado de mantenimientos',
         resManto,
+        resCliente,
         num: 0
     })
 }

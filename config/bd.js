@@ -6,6 +6,7 @@ const sequelize = new Sequelize('ORDEN', 'root', 'secret', {
   host: '0.0.0.0',
   dialect: 'mysql',
   port: 33060,
+  freezeTableName: true,
   define: {
       timestamps: false
   },

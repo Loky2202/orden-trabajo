@@ -1,0 +1,24 @@
+mixin mostrarCliente(cliente = {})
+
+    .container
+        .table-responsive
+            table.table
+                thead.thead-dark
+                    tr
+                    th.text-uppercase(scope='col') #
+                    th.text-uppercase(scope='col') Placas
+                    th.text-uppercase(scope='col') Cliente
+                    th.text-uppercase(scope='col') Modelo
+                tbody
+                    tr
+                    th(scope='row') 1
+                    td= cliente.placas
+                    td= cliente.cliente
+                    td= cliente.modelo
+
+        .container
+            button.btn.btn-success.btn-block.btn-lg(type='button' data-toggle='modal' data-target='#modalFormularioManto') Agregar Mantenimiento
+        .container
+            br
+        .container
+            a.btn.btn-info.btn-lg.btn-block(href=`/listado-manteminientos/${cliente.id}`, role='button', aria-pressed='true') Ver Mantenimientos
