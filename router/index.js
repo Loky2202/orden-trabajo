@@ -47,6 +47,10 @@ module.exports = function() {
     router.post('/editar-cliente/:id', controladorCliente.editarCliente)
     /* Eliminar Cliente */
     router.delete('/cliente/:id', controladorCliente.eliminarCliente)
+    /* Editar Mantenimiento */
+    router.get('/mantenimiento/editar/:id', controladorManto.formularioEditarManto)
+    /* Guardar Editar Mantenimiento */
+    router.post('/mantenimiento/editar/:id', controladorManto.editarMantenimiento)
 
     return router;
 }

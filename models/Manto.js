@@ -31,14 +31,14 @@ const Manto = bd.define('mantenimientos', {
     },
     motorCambioAceite: {
         type: Sequilize.INTEGER(1),
-        defaultValue: 0
+        defaultValue: 2
     },
     cambioAceiteObservaciones: {
         type: Sequilize.STRING
     },
     motorBujia: {
         type: Sequilize.INTEGER(1),
-        defaultValue: 0
+        defaultValue: 2
     },
     bujiasObservaciones: {
         type: Sequilize.STRING,
@@ -46,7 +46,7 @@ const Manto = bd.define('mantenimientos', {
     },
     motorFiltroAire: {
         type: Sequilize.INTEGER(1),
-        defaultValue: 0
+        defaultValue: 2
     },         
     motorFiltroObservaciones: {
         type: Sequilize.STRING,
@@ -54,7 +54,7 @@ const Manto = bd.define('mantenimientos', {
     },
     motorAjuste: {
         type: Sequilize.INTEGER(1),
-        defaultValue: 0
+        defaultValue: 2
     },            
     motorAjusteObservaciones: {
         type: Sequilize.STRING,
@@ -62,7 +62,7 @@ const Manto = bd.define('mantenimientos', {
     },     
     chasisCatarina: {
         type: Sequilize.INTEGER(1),
-        defaultValue: 0
+        defaultValue: 2
     },          
     catarinaObservaciones: {
         type: Sequilize.STRING,
@@ -70,7 +70,7 @@ const Manto = bd.define('mantenimientos', {
     },       
     chasisCadena: {
         type: Sequilize.INTEGER(1),
-        defaultValue: 0
+        defaultValue: 2
     },           
     cadenaObservaciones: {
         type: Sequilize.STRING,
@@ -78,7 +78,7 @@ const Manto = bd.define('mantenimientos', {
     },        
     chasisFrenos: {
         type: Sequilize.INTEGER(1),
-        defaultValue: 0
+        defaultValue: 2
     },           
     frenosObservaciones: {
         type: Sequilize.STRING,
@@ -86,7 +86,7 @@ const Manto = bd.define('mantenimientos', {
     },        
     chasisManecillas: {
         type: Sequilize.INTEGER(1),
-        defaultValue: 0
+        defaultValue: 2
     },         
     manecillasObservaciones: {
         type: Sequilize.STRING,
@@ -94,7 +94,7 @@ const Manto = bd.define('mantenimientos', {
     },      
     chasisRing: {
         type: Sequilize.INTEGER(1),
-        defaultValue: 0
+        defaultValue: 2
     },            
     ringObservaciones: {
         type: Sequilize.STRING,/* AQUI */
@@ -102,7 +102,7 @@ const Manto = bd.define('mantenimientos', {
     },         
     chasisEspejos: {
         type: Sequilize.INTEGER(1),
-        defaultValue: 0
+        defaultValue: 2
     },           
     espejosObservaciones: {
         type: Sequilize.STRING,
@@ -110,7 +110,7 @@ const Manto = bd.define('mantenimientos', {
     },       
     chasisLlantas: {
         type: Sequilize.INTEGER(1),
-        defaultValue: 0
+        defaultValue: 2
     },           
     llantasObservaciones: {
         type: Sequilize.STRING,
@@ -118,7 +118,7 @@ const Manto = bd.define('mantenimientos', {
     },       
     chasisPatas: {
         type: Sequilize.INTEGER(1),
-        defaultValue: 0
+        defaultValue: 2
     },            
     patasObservaciones: {
         type: Sequilize.STRING,
@@ -126,7 +126,7 @@ const Manto = bd.define('mantenimientos', {
     },        
     chasisAmortiguadores: {
         type: Sequilize.INTEGER(1),
-        defaultValue: 0
+        defaultValue: 2
     },       
     amortiguadoresObservaciones: {
         type: Sequilize.STRING,
@@ -134,7 +134,7 @@ const Manto = bd.define('mantenimientos', {
     },    
     chasisCables: {
         type: Sequilize.INTEGER(1),
-        defaultValue: 0
+        defaultValue: 2
     },           
     cablesObservaciones: {
         type: Sequilize.STRING,
@@ -142,7 +142,7 @@ const Manto = bd.define('mantenimientos', {
     },        
     chasisEngreseGeneral: {
         type: Sequilize.INTEGER(1),
-        defaultValue: 0
+        defaultValue: 2
     },       
     engreseGeneralObservaciones: {
         type: Sequilize.STRING,
@@ -150,7 +150,7 @@ const Manto = bd.define('mantenimientos', {
     },  
     electricoBobinaArranque: {
         type: Sequilize.INTEGER(1),
-        defaultValue: 0
+        defaultValue: 2
     },     
     bobinaArranqueObservaciones: {
         type: Sequilize.STRING,
@@ -158,7 +158,7 @@ const Manto = bd.define('mantenimientos', {
     },   
     electricoFocoStop: {
         type: Sequilize.INTEGER(1),
-        defaultValue: 0
+        defaultValue: 2
     },        
     focoStopObservaciones: {
         type: Sequilize.STRING,
@@ -166,7 +166,7 @@ const Manto = bd.define('mantenimientos', {
     },      
     electricoFocoDireccionales: {
         type: Sequilize.INTEGER(1),
-        defaultValue: 0
+        defaultValue: 2
     },    
     focoDireccionalesObservaciones: {
         type: Sequilize.STRING,
@@ -174,7 +174,7 @@ const Manto = bd.define('mantenimientos', {
     },  
     electricoSealBean: {
         type: Sequilize.INTEGER(1),
-        defaultValue: 0
+        defaultValue: 2
     },        
     sealBeanObservaciones: {
         type: Sequilize.STRING,
@@ -182,7 +182,7 @@ const Manto = bd.define('mantenimientos', {
     },      
     electricoPito: {
         type: Sequilize.INTEGER(1),
-        defaultValue: 0
+        defaultValue: 2
     },           
     pitoObservaciones: {
         type: Sequilize.STRING,
@@ -190,7 +190,7 @@ const Manto = bd.define('mantenimientos', {
     },         
     electricoBateria: {
         type: Sequilize.INTEGER(1),
-        defaultValue: 0
+        defaultValue: 2
     },         
     bateriaObservaciones: {
         type: Sequilize.STRING,
@@ -198,7 +198,7 @@ const Manto = bd.define('mantenimientos', {
     },       
     electricoFusible: {
         type: Sequilize.INTEGER(1),
-        defaultValue: 0
+        defaultValue: 2
     },         
     fusibleObservaciones: {
         type: Sequilize.STRING,
@@ -206,7 +206,7 @@ const Manto = bd.define('mantenimientos', {
     },       
     electricoLuzTablero: {
         type: Sequilize.INTEGER(1),
-        defaultValue: 0
+        defaultValue: 2
     },       
     luzTableroObservaciones: {
         type: Sequilize.STRING,
@@ -214,7 +214,7 @@ const Manto = bd.define('mantenimientos', {
     },    
     electricoAmpolletaDelantera: {
         type: Sequilize.INTEGER(1),
-        defaultValue: 0
+        defaultValue: 2
     },   
     ampolletaDelanteraObservaciones: {
         type: Sequilize.STRING,
@@ -222,7 +222,7 @@ const Manto = bd.define('mantenimientos', {
     }, 
     motorAmpolletaTrasera: {
         type: Sequilize.INTEGER(1),
-        defaultValue: 0
+        defaultValue: 2
     },      
     ampolletaTraseraObservaciones: {
         type: Sequilize.STRING,

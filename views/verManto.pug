@@ -26,9 +26,10 @@ block contenido
                                 .col
                                     a.btn.btn-info.btn-lg.active(href='#' role='button' aria-pressed='true') Ver
                                 .col
-                                    a.btn.btn-warning.btn-lg.active(href='#' role='button' aria-pressed='true') Editar
+                                    a.btn.btn-info.btn-lg.active(href=`/mantenimiento/editar/${manto.id}` role='button' aria-pressed='true') Editar
                                 .col
                                     a.btn.btn-danger.btn-lg.active(href='#' role='button' aria-pressed='true') Eliminar
+                        td= manto.clienteId
                 else
                     tr 
                         td 

@@ -1,0 +1,332 @@
+
+extends layout
+block contenido
+
+    .container(id='principal')
+        form(method='POST' action=`/mantenimiento/editar/${respuestaManto.id}`)
+            .row
+                .col
+                    p
+                        strong CARBURACION
+                    .form-group
+                        .btn-group.btn-group-toggle(id='valorCarburacion' data-toggle='buttons' data-valorCarburacion= `${respuestaManto.carburacion ? respuestaManto.carburacion : ''}`)
+                            label.btn.btn-outline-secondary
+                                input#opcionCarburacion1(type='radio' name='carburacion' value='limpieza')
+                                |  LIMPIEZA
+                            label.btn.btn-outline-secondary
+                                input#opcionCarburacion2(type='radio' name='carburacion' value='cambio')
+                                |  CAMBIO
+                            label.btn.btn-outline-secondary
+                                input#opcionCarburacion3(type='radio' name='carburacion' value='reparacion')
+                                |  REPARACION
+                    .form-group
+                        input#carburacionObservacion.form-control(type="text", name='carburacionObservaciones' placeholder='Observaciones...' value=`${respuestaManto.carburacionObservaciones}`)
+                    
+                                        
+                        
+
+                .col
+                    p
+                        strong MOTOR
+                    .input-group.mb-4
+                        .input-group-prepend
+                            .input-group
+                                .btn-group-toggle(data-toggle='buttons')
+                                    label#motorCambioAceite.btn.btn-outline-secondary(aria-pressed="true")
+                                        input.claseCheck(id='campoCheck1' type='checkbox' name='motorCambioAceite' value=`${respuestaManto.motorCambioAceite}`)
+                                        |  Cambio de aceite
+                        input#cambioAceiteObservaciones.form-control(type='text' name='cambioAceiteObservaciones' placeholder='Observaciones...' value=`${respuestaManto.cambioAceiteObservaciones}`)
+                        
+
+                    
+                    .input-group.mb-4
+                        .input-group-prepend
+                            .input-group
+                                .btn-group-toggle(data-toggle='buttons')
+                                    label.btn.btn-outline-secondary
+                                        input.claseCheck(id='campoCheck2' type='checkbox' name='motorBujia' value=`${respuestaManto.motorBujia}`)
+                                        |  Bujias
+                        input#bujiasObservaciones.form-control(type='text' name='bujiasObservaciones' placeholder='Observaciones...' value=`${respuestaManto.bujiasObservaciones}`)
+                    
+                    .input-group.mb-4
+                        .input-group-prepend
+                            .input-group
+                                .btn-group-toggle(data-toggle='buttons')
+                                    label.btn.btn-outline-secondary
+                                        input.claseCheck(id='campoCheck3' type='checkbox' name='motorFiltroAire' value=`${respuestaManto.motorFiltroAire}`)
+                                        |  Filtro de aire
+                        input#motorFiltroObservaciones.form-control(type='text' name='motorFiltroObservaciones' placeholder='Observaciones...' value=`${respuestaManto.motorFiltroObservaciones}`)
+
+                    .input-group.mb-4
+                        .input-group-prepend
+                            .input-group
+                                .btn-group-toggle(data-toggle='buttons')
+                                    label.btn.btn-outline-secondary
+                                        input.claseCheck(id='campoCheck4' type='checkbox' name='motorAjuste' value=`${respuestaManto.motorAjuste}`)
+                                        |  Ajuste
+                        textarea#motorAjusteObservaciones.form-control(name='motorAjusteObservaciones' placeholder='Observaciones...' )=respuestaManto.motorAjusteObservaciones
+            .row
+                .col
+                    p
+                        strong CHASIS
+                        .input-group.mb-4
+                            .input-group-prepend
+                                .input-group
+                                    .btn-group-toggle(data-toggle='buttons')
+                                        label.btn.btn-outline-secondary
+                                            input.claseCheck(id='campoCheck5' type='checkbox' name='chasisCatarina' value=`${respuestaManto.chasisCatarina}`)
+                                            |  Catarina
+                            input#catarinaObservaciones.form-control(type='text' name='catarinaObservaciones' placeholder='Observaciones...' value=`${respuestaManto.catarinaObservaciones}`)
+
+                        
+                        .input-group.mb-4
+                            .input-group-prepend
+                                .input-group
+                                    .btn-group-toggle(data-toggle='buttons')
+                                        label.btn.btn-outline-secondary
+                                            input.claseCheck(id='campoCheck6' type='checkbox' name='chasisCadena' value=`${respuestaManto.chasisCadena}`)
+                                            |  Cadena
+                            input#cadenaObservaciones.form-control(type='text' name='cadenaObservaciones' placeholder='Observaciones...' value=`${respuestaManto.cadenaObservaciones}`)
+                        
+                        .input-group.mb-4
+                            .input-group-prepend
+                                .input-group
+                                    .btn-group-toggle(data-toggle='buttons')
+                                        label.btn.btn-outline-secondary
+                                            input.claseCheck(id='campoCheck7' type='checkbox' name='chasisFrenos' value=`${respuestaManto.chasisFrenos}`)
+                                            |  Frenos
+                            input#frenosObservaciones.form-control(type='text' name='frenosObservaciones' placeholder='Observaciones...' value=`${respuestaManto.frenosObservaciones}`)
+
+                        .input-group.mb-4
+                            .input-group-prepend
+                                .input-group
+                                    .btn-group-toggle(data-toggle='buttons')
+                                        label.btn.btn-outline-secondary
+                                            input.claseCheck(id='campoCheck8' type='checkbox' name='chasisManecillas' value=`${respuestaManto.chasisManecillas}`)
+                                            |  Manecillas
+                            input#manecillasObservaciones.form-control(type='text' name='manecillasObservaciones' placeholder='Observaciones...' value=`${respuestaManto.manecillasObservaciones}`)
+                        
+                        .input-group.mb-4
+                            .input-group-prepend
+                                .input-group
+                                    .btn-group-toggle(data-toggle='buttons')
+                                        label.btn.btn-outline-secondary
+                                            input.claseCheck(id='campoCheck9' type='checkbox' name='chasisRing' value=`${respuestaManto.chasisRing}`)
+                                            |  Ring
+                            input#ringObservaciones.form-control(type='text' name='ringObservaciones' placeholder='Observaciones...' value=`${respuestaManto.ringObservaciones}`)
+                        
+                        .input-group.mb-4
+                            .input-group-prepend
+                                .input-group
+                                    .btn-group-toggle(data-toggle='buttons')
+                                        label.btn.btn-outline-secondary
+                                            input.claseCheck(id='campoCheck10' type='checkbox' name='chasisEspejos' value=`${respuestaManto.chasisEspejos}`)
+                                            |  Espejos
+                            input#espejosObservaciones.form-control(type='text' name='espejosObservaciones' placeholder='Observaciones...' value=`${respuestaManto.espejosObservaciones}`)
+
+                        .input-group.mb-4
+                            .input-group-prepend
+                                .input-group
+                                    .btn-group-toggle(data-toggle='buttons')
+                                        label.btn.btn-outline-secondary
+                                            input.claseCheck(id='campoCheck11' type='checkbox' name='chasisLlantas' value=`${respuestaManto.chasisLlantas}`)
+                                            |  Llantas
+                            input#llantasObservaciones.form-control(type='text' name='llantasObservaciones' placeholder='Observaciones...' value=`${respuestaManto.llantasObservaciones}`)
+
+
+                        .input-group.mb-4
+                            .input-group-prepend
+                                .input-group
+                                    .btn-group-toggle(data-toggle='buttons')
+                                        label.btn.btn-outline-secondary
+                                            input.claseCheck(id='campoCheck12' type='checkbox' name='chasisPatas' value=`${respuestaManto.chasisPatas}`)
+                                            |  Patas
+                            input#patasObservaciones.form-control(type='text' name='patasObservaciones' placeholder='Observaciones...' value=`${respuestaManto.patasObservaciones}`)
+
+                        .input-group.mb-4
+                            .input-group-prepend
+                                .input-group
+                                    .btn-group-toggle(data-toggle='buttons')
+                                        label.btn.btn-outline-secondary
+                                            input.claseCheck(id='campoCheck13' type='checkbox' name='chasisAmortiguadores' value=`${respuestaManto.chasisAmortiguadores}`)
+                                            |  Amortiguadores
+                            input#amortiguadoresObservaciones.form-control(type='text' name='amortiguadoresObservaciones' placeholder='Observaciones...' value=`${respuestaManto.amortiguadoresObservaciones}`)
+
+                        .input-group.mb-4
+                            .input-group-prepend
+                                .input-group
+                                    .btn-group-toggle(data-toggle='buttons')
+                                        label.btn.btn-outline-secondary
+                                            input.claseCheck(id='campoCheck14' type='checkbox' name='chasisCables' value=`${respuestaManto.chasisCables}`)
+                                            |  Cables
+                            input#cablesObservaciones.form-control(type='text' name='cablesObservaciones' placeholder='Observaciones...' value=`${respuestaManto.cablesObservaciones}`)
+
+                        .input-group.mb-4
+                            .input-group-prepend
+                                .input-group
+                                    .btn-group-toggle(data-toggle='buttons')
+                                        label.btn.btn-outline-secondary
+                                            input.claseCheck(id='campoCheck15' type='checkbox' name='chasisEngreseGeneral' value=`${respuestaManto.chasisEngreseGeneral}`)
+                                            |  Engrese General
+                            input#engraseGeneralObservaciones.form-control(type='text' name='engreseGeneralObservaciones' placeholder='Observaciones...' value=`${respuestaManto.engreseGeneralObservaciones}`)
+
+
+
+
+                .col
+                    p
+                        strong ELECTRICO
+                        .input-group.mb-4
+                            .input-group-prepend
+                                .input-group
+                                    .btn-group-toggle(data-toggle='buttons')
+                                        label.btn.btn-outline-secondary
+                                            input.claseCheck(id='campoCheck16' type='checkbox' name='electricoBobinaArranque' value=`${respuestaManto.electricoBobinaArranque}`)
+                                            |  Bobina de Arranque
+                            input#bobinaArranqueObservaciones.form-control(type='text' name='bobinaArranqueObservaciones' placeholder='Observaciones...' value=`${respuestaManto.bobinaArranqueObservaciones}`)
+
+                        
+                        .input-group.mb-4
+                            .input-group-prepend
+                                .input-group
+                                    .btn-group-toggle(data-toggle='buttons')
+                                        label.btn.btn-outline-secondary
+                                            input.claseCheck(id='campoCheck17' type='checkbox' name='electricoFocoStop' value=`${respuestaManto.electricoFocoStop}`)
+                                            |  Foco de Stop
+                            input#focoStopObservaciones.form-control(type='text' name='focoStopObservaciones' placeholder='Observaciones...' value=`${respuestaManto.focoStopObservaciones}`)
+                        
+                        .input-group.mb-4
+                            .input-group-prepend
+                                .input-group
+                                    .btn-group-toggle(data-toggle='buttons')
+                                        label.btn.btn-outline-secondary
+                                            input.claseCheck(id='campoCheck18' type='checkbox' name='electricoFocoDireccionales' value=`${respuestaManto.electricoFocoDireccionales}`)
+                                            |  Focos Direccionales
+                            input#focoDirecionalObservaciones.form-control(type='text' name='focoDireccionalesObservaciones' placeholder='Observaciones...' value=`${respuestaManto.focoDireccionalesObservaciones}`)
+
+                        .input-group.mb-4
+                            .input-group-prepend
+                                .input-group
+                                    .btn-group-toggle(data-toggle='buttons')
+                                        label.btn.btn-outline-secondary
+                                            input.claseCheck(id='campoCheck19' type='checkbox' name='electricoSealBean' value=`${respuestaManto.electricoSealBean}`)
+                                            |  Seal Bean
+                            input#sealBeanObservaciones.form-control(type='text' name='sealBeanObservaciones' placeholder='Observaciones...' value=`${respuestaManto.sealBeanObservaciones}`)
+
+                        .input-group.mb-4
+                            .input-group-prepend
+                                .input-group
+                                    .btn-group-toggle(data-toggle='buttons')
+                                        label.btn.btn-outline-secondary
+                                            input.claseCheck(id='campoCheck20' type='checkbox' name='electricoPito' value=`${respuestaManto.electricoPito}`)
+                                            |  Pito
+                            input#pitoObservaciones.form-control(type='text' name='pitoObservaciones' placeholder='Observaciones...' value=`${respuestaManto.pitoObservaciones}`)
+
+                        .input-group.mb-4
+                            .input-group-prepend
+                                .input-group
+                                    .btn-group-toggle(data-toggle='buttons')
+                                        label.btn.btn-outline-secondary
+                                            input.claseCheck(id='campoCheck21' type='checkbox' name='electricoBateria' value=`${respuestaManto.electricoBateria}`)
+                                            |  Bateria
+                            input#bateriaObservaciones.form-control(type='text' name='bateriaObservaciones' placeholder='Observaciones...' value=`${respuestaManto.bateriaObservaciones}`)
+
+                        .input-group.mb-4
+                            .input-group-prepend
+                                .input-group
+                                    .btn-group-toggle(data-toggle='buttons')
+                                        label.btn.btn-outline-secondary
+                                            input.claseCheck(id='campoCheck22' type='checkbox' name='electricoFusible' value=`${respuestaManto.electricoFusible}`)
+                                            |  Fusibles
+                            input#fusibleObservaciones.form-control(type='text' name='fusibleObservaciones' placeholder='Observaciones...' value=`${respuestaManto.fusibleObservaciones}`)
+
+                        .input-group.mb-4
+                            .input-group-prepend
+                                .input-group
+                                    .btn-group-toggle(data-toggle='buttons')
+                                        label.btn.btn-outline-secondary
+                                            input.claseCheck(id='campoCheck23' type='checkbox' name='electricoLuzTablero' value=`${respuestaManto.electricoLuzTablero}`)
+                                            |  Luz de Tablero
+                            input#luzTableroObservaciones.form-control(type='text' name='luzTableroObservaciones' placeholder='Observaciones...' value=`${respuestaManto.luzTableroObservaciones}`)
+
+                        .input-group.mb-4
+                            .input-group-prepend
+                                .input-group
+                                    .btn-group-toggle(data-toggle='buttons')
+                                        label.btn.btn-outline-secondary
+                                            input.claseCheck(id='campoCheck24' type='checkbox' name='electricoAmpolletaDelantera' value=`${respuestaManto.electricoAmpolletaDelantera}`)
+                                            |  Ampolleta Delantera
+                            input#ampolletaDelanteraObservaciones.form-control(type='text' name='ampolletaDelanteraObservaciones' placeholder='Observaciones...' value=`${respuestaManto.ampolletaDelanteraObservaciones}`)
+
+                        .input-group.mb-4
+                            .input-group-prepend
+                                .input-group
+                                    .btn-group-toggle(data-toggle='buttons')
+                                        label.btn.btn-outline-secondary
+                                            input.claseCheck(id='campoCheck25' type='checkbox' name='motorAmpolletaTrasera' value=`${respuestaManto.motorAmpolletaTrasera}`)
+                                            |  Ampolleta Trasera
+                            input#ampolletaTraseraObservaciones.form-control(type='text' name='ampolletaTraseraObservaciones' placeholder='Observaciones...' value=`${respuestaManto.ampolletaTraseraObservaciones}`)
+            
+            .row
+                .col
+
+                    p
+                        strong Nivel de Gasolina
+                    .form-group
+                        .btn-group.btn-group-toggle(data-toggle='buttons' id='nivelGas' data-nivel=`${respuestaManto.nivelGas}`)
+                            label.btn.btn-outline-secondary
+                                input#opcion1(type='radio' name='nivelGas' value=`E` )
+                                | E
+                            label.btn.btn-outline-secondary
+                                input#opcion2(type='radio' name='nivelGas' value='1/4')
+                                | 1/4
+                            label.btn.btn-outline-secondary
+                                input#opcion3(type='radio' name='nivelGas' value='1/2')
+                                | 1/2
+                            label.btn.btn-outline-secondary
+                                input#opcion4(type='radio' name='nivelGas' value='3/4')
+                                | 3/4
+                            label.btn.btn-outline-secondary
+                                input#opcion5(type='radio' name='nivelGas' value='F')
+                                | F
+
+                .col
+                    .col-md-6.mb-3
+                        label(for='validationDefaultUsername') Kilometros Actuales
+                        .input-group
+                                .input-group-prepend
+                                    span#campoKilometros.input-group-text KM
+                                input#campoKilometros.form-control(type='number' name='kilometros' placeholder='00000000' required='' value=`${respuestaManto.kilometros}`)
+
+            .row
+                div
+                    input(type='hidden' id=`campo1` name=`campo1` value=`${respuestaManto.motorCambioAceite}`)
+                    input(type='hidden' id=`campo2` name=`campo2` value=`${respuestaManto.motorBujia}`)
+                    input(type='hidden' id=`campo3` name=`campo3` value=`${respuestaManto.motorFiltroAire}`)
+                    input(type='hidden' id=`campo4` name=`campo4` value=`${respuestaManto.motorAjuste}`)
+                    input(type='hidden' id=`campo5` name=`campo5` value=`${respuestaManto.chasisCatarina}`)
+                    input(type='hidden' id=`campo6` name=`campo6` value=`${respuestaManto.chasisCadena}`)
+                    input(type='hidden' id=`campo7` name=`campo7` value=`${respuestaManto.chasisFrenos}`)
+                    input(type='hidden' id=`campo8` name=`campo8` value=`${respuestaManto.chasisManecillas}`)
+                    input(type='hidden' id=`campo9` name=`campo9` value=`${respuestaManto.chasisRing}`)
+                    input(type='hidden' id=`campo10` name=`campo10` value=`${respuestaManto.chasisEspejos}`)
+                    input(type='hidden' id=`campo11` name=`campo11` value=`${respuestaManto.chasisLlantas}`)
+                    input(type='hidden' id=`campo12` name=`campo12` value=`${respuestaManto.chasisPatas}`)
+                    input(type='hidden' id=`campo13` name=`campo13` value=`${respuestaManto.chasisAmortiguadores}`)
+                    input(type='hidden' id=`campo14` name=`campo14` value=`${respuestaManto.chasisCables}`)
+                    input(type='hidden' id=`campo15` name=`campo15` value=`${respuestaManto.chasisEngreseGeneral}`)
+                    input(type='hidden' id=`campo16` name=`campo16` value=`${respuestaManto.electricoBobinaArranque}`)
+                    input(type='hidden' id=`campo17` name=`campo17` value=`${respuestaManto.electricoFocoStop}`)
+                    input(type='hidden' id=`campo18` name=`campo18` value=`${respuestaManto.electricoFocoDireccionales}`)
+                    input(type='hidden' id=`campo19` name=`campo19` value=`${respuestaManto.electricoSealBean}`)
+                    input(type='hidden' id=`campo20` name=`campo20` value=`${respuestaManto.electricoPito}`)
+                    input(type='hidden' id=`campo21` name=`campo21` value=`${respuestaManto.electricoBateria}`)
+                    input(type='hidden' id=`campo22` name=`campo22` value=`${respuestaManto.electricoFusible}`)
+                    input(type='hidden' id=`campo23` name=`campo23` value=`${respuestaManto.electricoLuzTablero}`)
+                    input(type='hidden' id=`campo24` name=`campo24` value=`${respuestaManto.electricoAmpolletaDelantera}`)
+                    input(type='hidden' id=`campo25` name=`campo25` value=`${respuestaManto.motorAmpolletaTrasera}`)
+
+                .input-group
+                    button.btn.btn-primary.btn-block(type='submit') Editar
+  
+
