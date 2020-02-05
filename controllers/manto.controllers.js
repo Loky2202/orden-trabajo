@@ -298,3 +298,19 @@ exports.editarMantenimiento = async (req, res, next) => {
             )
         res.redirect('/')
 }
+
+exports.eliminarMantenimiento = async (req, res, next) => {
+
+    let id = req.params.id;
+
+    const {clienteId} = await Manto.findOne({ where: { id } })
+
+    const respuestaEliminar = await Manto.destroy({ where: { id } })
+
+    if(!respuestaEliminar) {
+        return next();
+    }
+
+    res.status(200).send(`${clienteId}`)
+
+}

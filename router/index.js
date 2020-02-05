@@ -36,7 +36,7 @@ module.exports = function() {
     router.get('/lista-Placas', controladorCliente.listadoPlacas)
 
     /* Ver listado de mantenimientos */
-    router.get('/listado-manteminientos/:id', controladorManto.listadoManto)
+    router.get('/listado-mantenimientos/:id', controladorManto.listadoManto)
 
     /* Ver formulario manto */
     router.post('/agregar-mantenimiento/:id', controladorManto.agregarManto)
@@ -51,6 +51,8 @@ module.exports = function() {
     router.get('/mantenimiento/editar/:id', controladorManto.formularioEditarManto)
     /* Guardar Editar Mantenimiento */
     router.post('/mantenimiento/editar/:id', controladorManto.editarMantenimiento)
+    /* Eliminar Mantenimiento */
+    router.delete(`/mantenimineto/eliminar/:id`, controladorManto.eliminarMantenimiento)
 
     return router;
 }
