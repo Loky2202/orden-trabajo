@@ -56,6 +56,8 @@ block contenido
                                         input.claseCheck(id='campoCheck3' type='checkbox' name='motorFiltroAire' value=`${respuestaManto.motorFiltroAire}`)
                                         |  Filtro de aire
                         input#motorFiltroObservaciones.form-control(type='text' name='motorFiltroObservaciones' placeholder='Observaciones...' value=`${respuestaManto.motorFiltroObservaciones}`)
+            .row
+                .col
 
                     .input-group.mb-4
                         .input-group-prepend
@@ -64,7 +66,7 @@ block contenido
                                     label.btn.btn-outline-secondary
                                         input.claseCheck(id='campoCheck4' type='checkbox' name='motorAjuste' value=`${respuestaManto.motorAjuste}`)
                                         |  Ajuste
-                        textarea#motorAjusteObservaciones.form-control(name='motorAjusteObservaciones' placeholder='Observaciones...' )=respuestaManto.motorAjusteObservaciones
+                        textarea#motorAjusteObservaciones.form-control(name='motorAjusteObservaciones' placeholder='Observaciones...' cols="30" rows="8")=respuestaManto.motorAjusteObservaciones
             .row
                 .col
                     p

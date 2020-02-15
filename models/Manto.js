@@ -57,7 +57,7 @@ const Manto = bd.define('mantenimientos', {
         defaultValue: 2
     },            
     motorAjusteObservaciones: {
-        type: Sequilize.STRING,
+        type: Sequilize.TEXT,
         defaultValue: ''
     },     
     chasisCatarina: {
