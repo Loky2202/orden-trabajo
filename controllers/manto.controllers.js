@@ -3,6 +3,8 @@
 const Manto = require('../models/Manto')
 /* Importar models/Cliente */
 const Cliente = require('../models/Cliente')
+/* Puppeteer para generar los pdf */
+const puppeteer = require('puppeteer');
 
 
 exports.listadoManto = async (req, res, next) => {
@@ -314,3 +316,49 @@ exports.eliminarMantenimiento = async (req, res, next) => {
     res.status(200).send(`${clienteId}`)
 
 }
+
+/* VER EL FORMULARIO DE MANTENIMIENTOS HECHOS ANTES DE IMPRIMIRLOS */
+exports.verMantenimiento =  async (req, res, next) => {
+    const id =  req.params.id;
+    const respuestaMantoPromise = await Manto.findOne({ where: { id } })
+    const respuestaClientePromise = Cliente.findOne( { where: { id: respuestaMantoPromise.clienteId } })
+
+    const [respuestaManto, respuestaCliente] = await Promise.all([respuestaMantoPromise, respuestaClientePromise])
+
+    let nombrepagina = `Mantenimiento Placas: ${respuestaCliente.placas}`
+
+    res.render('verFormularioManto', {
+        respuestaManto,
+        respuestaCliente,
+        nombrepagina
+    })
+}
+
+exports.imprimirMantenimiento = (req, res, next) => {
+
+    let id = req.params.id;
+
+    (async () => {
+        const browser = await puppeteer.launch();
+        const page = await browser.newPage();
+        await page.goto(`http://localhost:5000/mantenimiento/ver/${id}`, {waitUntil: 'networkidle2'});
+        await page.pdf({path: `public/PDF/${id}.pdf`, format: 'Letter'});
+ 
+        res.download(`public/PDF/${id}.pdf`, `${id}.pdf`, (err) => {
+            if(err){
+                console.log(err)
+            }else {
+                console.log('descargado')
+                next();
+            }
+        })
+        console.log('EXito')
+        
+        await browser.close();
+      })();
+
+    
+
+
+}
+

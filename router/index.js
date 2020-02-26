@@ -53,6 +53,10 @@ module.exports = function() {
     router.post('/mantenimiento/editar/:id', controladorManto.editarMantenimiento)
     /* Eliminar Mantenimiento */
     router.delete(`/mantenimineto/eliminar/:id`, controladorManto.eliminarMantenimiento)
+    /* Ver Manto */
+    router.get(`/mantenimiento/ver/:id`, controladorManto.verMantenimiento)
+    /* Imprimir Manto */
+    router.get('/mantenimiento/imprimir/:id', controladorManto.imprimirMantenimiento)
 
     return router;
 }
