@@ -8,6 +8,7 @@ const {body} = require('express-validator')
 const controladorPrincipal = require('../controllers/principal.controllers')
 const controladorCliente = require('../controllers/cliente.controllers');
 const controladorManto = require('../controllers/manto.controllers');
+const controladorCotizacion = require('../controllers/cotizacion.controllers');
 
 
 module.exports = function() {
@@ -57,6 +58,12 @@ module.exports = function() {
     router.get(`/mantenimiento/ver/:id`, controladorManto.verMantenimiento)
     /* Imprimir Manto */
     router.get('/mantenimiento/imprimir/:id', controladorManto.imprimirMantenimiento)
+
+    /* Cotizaciones */
+    router.get('/cotizacion', controladorCotizacion.index)
+    router.get('/cotizacion/nueva/:placas', controladorCotizacion.nueva)
+
+    router.get('/cotizacion/producto', controladorCotizacion.producto)
 
     return router;
 }

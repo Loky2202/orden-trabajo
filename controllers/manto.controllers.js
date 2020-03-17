@@ -5,6 +5,9 @@ const Manto = require('../models/Manto')
 const Cliente = require('../models/Cliente')
 /* Puppeteer para generar los pdf */
 const puppeteer = require('puppeteer');
+/* Moment para las fechas */
+const moment = require('moment');
+moment.locale('es');
 
 
 exports.listadoManto = async (req, res, next) => {
@@ -100,6 +103,7 @@ exports.agregarManto = async (req, res, next) => {
 
 
     const mantenimiento = await Manto.create({
+        fechaInicio: moment().format('LL'),
         carburacion,
         carburacionObservaciones, 
         motorCambioAceite, 

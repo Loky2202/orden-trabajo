@@ -1,0 +1,33 @@
+
+
+extends layout.pug
+block contenido
+    .container
+        .container.align-items-center
+
+            form
+                .form-row
+                    .form-group.col-md-2
+                        input#cantidad.form-control(type='number' placeholder='Cantidad' required)
+                    .form-group.col-md-6
+                        input#descripcion.form-control(type='text' placeholder='Descripcion' required)
+                    .form-group.col-md-2
+                        input#precio.form-control(type='number' placeholder='Precio Unitario' required)
+                    .col-md-2
+                        button.btn.btn-primary.btn-block(type='button' id='agregar') Agregar
+
+        .container
+            .row.row-cols-3
+                .col-2
+                    h4 cantindad
+                .col-7 
+                    h4 Descripcion
+                .col-3
+                    h4 Precio Unitario
+            .row.row-cols-3
+                .col-2
+                    h5 1
+                .col-7 
+                    h5 LLantas
+                .col-3
+                    h5 20.00

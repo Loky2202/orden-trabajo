@@ -17,11 +17,11 @@ const Manto = bd.define('mantenimientos', {
     },
     fechaInicio: {
         type: Sequilize.STRING,
-        defaultValue: 'Sequilize.NOW'
+        defaultValue: 'No hay fecha'
     },
     fechaFinal: {
         type: Sequilize.STRING,
-        defaultValue: 'Sequilize.NOW'
+        defaultValue: 'No hay fecha'
     },
     carburacion: {
         type: Sequilize.STRING

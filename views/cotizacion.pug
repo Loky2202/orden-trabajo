@@ -1,0 +1,30 @@
+
+
+extends layout.pug
+block contenido
+
+    .container
+        a.btn.btn-success.btn-lg.btn-block(role='button' href='/cotizacion/nueva') Nueva Cotizacion
+
+    .container.table-responsive
+        .container
+            br
+            h4.text-center Ultimas Cotizaciones
+        table.table
+            caption Ultimas Cotizaciones
+            thead
+                tr
+                th(scope='col') #
+                th(scope='col') Cliente
+                th(scope='col') Placas
+                th(scope='col') Cotizacion
+                th(scope='col') Fecha
+            tbody
+                tr
+                th(scope='row') 1
+                td Mark
+                td Otto
+                td @mdo
+                td 24/Febrero/2020
+
+        
