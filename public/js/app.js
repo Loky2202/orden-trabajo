@@ -3,7 +3,7 @@ import readonlyenFormManto from './funciones/bloqueoCamposCliente'
 import btnEliminar from './funciones/eliminarCliente';
 import divPrincipal from './funciones/cambioValorFormEditarManto';
 import btnEliminarManto from './funciones/eliminarManto';
-import btnAgregarCotizacion from './funciones/cotizacionAgregar'
+
 
 
 document.addEventListener('DOMContentLoaded', ()=> {

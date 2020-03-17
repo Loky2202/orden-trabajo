@@ -1,4 +1,4 @@
-const axios = require('axios');
+/* const axios = require('axios');
 
 const botonAgregar = document.getElementById('agregar');
 const cantidad = document.getElementById('cantidad');
@@ -9,7 +9,7 @@ var cantidadArray = [];
 var descripcionArray = [];
 var precioArray = [];
 var cotiz = [];
-const btnAgregarCotizacion = botonAgregar.addEventListener('click', (e) => {
+/* const btnAgregarCotizacion = botonAgregar.addEventListener('click', (e) => {
 
     cantidadArray[i] = cantidad.value
     descripcionArray[i] = descripcion.value;
@@ -18,9 +18,9 @@ const btnAgregarCotizacion = botonAgregar.addEventListener('click', (e) => {
     console.info(divhtml.lastElementChild.parentChilde);
     i++;
 })
+ */
 
-
-
+ */
 
 
 
